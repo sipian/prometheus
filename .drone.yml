@@ -9,4 +9,3 @@ pipeline:
       - cd cmd/prometheus
       - go build
       - go test
-branches: drone
