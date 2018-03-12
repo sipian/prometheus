@@ -1,11 +1,5 @@
-workspace:
-    base: /home
-    path: prometheus/drone/prometheus
 pipeline:
   build:
     image: golang
     commands:
-      - go get
-      - cd cmd/prometheus
-      - go build
       - make test
