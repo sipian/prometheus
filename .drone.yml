@@ -1,3 +1,6 @@
+workspace:
+    base: /promCI
+    path: src/github.com/krasi-georgiev/prometheus
 pipeline:
   build:
     image: golang
@@ -6,3 +9,4 @@ pipeline:
       - cd cmd/prometheus
       - go build
       - go test
+branches: drone
