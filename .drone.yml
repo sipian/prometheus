@@ -1,5 +1,4 @@
 workspace:
-    base: /go
     path: src/github.com/prometheus/prometheus
 pipeline:
   build:
