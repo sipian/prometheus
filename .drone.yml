@@ -4,7 +4,10 @@ workspace:
 pipeline:
   test:
     image: sipian/golang-builder:1.10-base
-    path: github.com/prometheus/prometheus
+    environment:
+      - PLUGIN_PATH=github.com/prometheus/prometheus
+    commands:
+      - ls
 matrix:
   TAG:
     - 1.10
