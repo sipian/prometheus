@@ -7,3 +7,6 @@ pipeline:
     commands:
       - ls
       - ls .build/
+matrix:
+  TAG:
+    - 1.10
