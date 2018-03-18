@@ -7,9 +7,9 @@ pipeline:
     commands:
       - wget https://download.docker.com/linux/static/stable/x86_64/docker-17.12.1-ce.tgz
       - tar xzvf docker-17.12.1-ce.tgz
-      - sudo cp docker/* /usr/bin/
-      - sudo dockerd &
-      - sudo curl -L 'https://github.com/aktau/github-release/releases/download/v0.6.2/linux-amd64-github-release.tar.bz2' | tar xvjf - --strip-components 3 -C $HOME/bin
+      - cp docker/* /usr/bin/
+      - dockerd &
+      - curl -L 'https://github.com/aktau/github-release/releases/download/v0.6.2/linux-amd64-github-release.tar.bz2' | tar xvjf - --strip-components 3 -C $HOME/bin
       - make promu
       - promu crossbuild
       - ln -s .build/linux-amd64/prometheus prometheus
