@@ -9,7 +9,8 @@ pipeline:
       - tar xzvf docker-17.12.1-ce.tgz
       - cp docker/* /usr/bin/
       - chmod 0755 /usr/bin/docker
-      - curl -L 'https://github.com/aktau/github-release/releases/download/v0.6.2/linux-amd64-github-release.tar.bz2' | tar xvjf - --strip-components 3 -C $HOME/bin
+      - docker info
+      - curl -L 'https://github.com/aktau/github-release/releases/download/v0.6.2/linux-amd64-github-release.tar.bz2' | tar xvjf - --strip-components 3 -C /usr/bin
       - make promu
       - promu crossbuild
       - ln -s .build/linux-amd64/prometheus prometheus
