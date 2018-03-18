@@ -4,11 +4,10 @@ workspace:
 pipeline:
   test:
     image: sipian/golang-builder:1.10-base
+    import_path: github.com/prometheus/prometheus
     commands:
       - ls
       - ls prom-build/
-    volumes:
-      - /go/src/github.com/prometheus/prometheus:/app
 matrix:
   TAG:
     - 1.10
