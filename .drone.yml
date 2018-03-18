@@ -5,9 +5,6 @@ pipeline:
   test:
     image: sipian/golang-builder:1.10-base
     path: github.com/prometheus/prometheus
-    commands:
-      - ls
-      - ls prom-build/
 matrix:
   TAG:
     - 1.10
