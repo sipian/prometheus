@@ -2,6 +2,10 @@ workspace:
     base: /go
     path: src/github.com/prometheus/prometheus
 pipeline:
+  test:
+    image: plugins/docker
+    commands:
+      - docker info
   build:
     image: golang:${TAG}
     commands:
