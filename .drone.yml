@@ -2,10 +2,6 @@ workspace:
     base: /go
     path: src/github.com/prometheus/prometheus
 pipeline:
-  staticcheck:
-    image: golang:${TAG}
-    commands:
-      - make check_license style unused test staticcheck
   build:
     image: golang:${TAG}
     commands:
@@ -17,5 +13,4 @@ pipeline:
       - ls .build/
 matrix:
   TAG:
-    - 1.10
     - latest
