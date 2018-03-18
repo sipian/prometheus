@@ -2,10 +2,19 @@ workspace:
     base: /go
     path: src/github.com/prometheus/prometheus
 pipeline:
-  build:
+  staticcheck:
     image: golang:${TAG}
     commands:
       - make check_license style unused test staticcheck
+  build:
+    image: golang:${TAG}
+    commands:
+      - make promu
+      - promu crossbuild
+      - ln -s .build/linux-amd64/prometheus prometheus
+      - ln -s .build/linux-amd64/promtool promtool
+      - ls
+      - ls .build/
 matrix:
   TAG:
     - 1.10
