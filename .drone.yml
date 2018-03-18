@@ -3,24 +3,10 @@ workspace:
     path: src/github.com/prometheus/prometheus
 pipeline:
   test:
-    image: plugins/docker
+    image: sipian/golang-builder:1.10-base
     commands:
-      - docker info
-  build:
-    image: golang:${TAG}
-    commands:
-      - wget https://download.docker.com/linux/static/stable/x86_64/docker-17.12.1-ce.tgz
-      - tar xzvf docker-17.12.1-ce.tgz
-      - cp docker/* /usr/bin/
-      - chmod 0755 /usr/bin/docker
-      - docker info
-      - curl -L 'https://github.com/aktau/github-release/releases/download/v0.6.2/linux-amd64-github-release.tar.bz2' | tar xvjf - --strip-components 3 -C /usr/bin
-      - make promu
-      - promu crossbuild
-      - ln -s .build/linux-amd64/prometheus prometheus
-      - ln -s .build/linux-amd64/promtool promtool
       - ls
-      - ls .build/11
+      - ls .build/
 matrix:
   TAG:
     - latest
