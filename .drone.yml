@@ -7,6 +7,3 @@ pipeline:
     commands:
       - ls
       - ls .build/
-matrix:
-  TAG:
-    - latest
