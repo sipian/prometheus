@@ -6,12 +6,11 @@ pipeline:
     image: sipian/golang-builder:1.10-base
     pull: true
     path: github.com/prometheus/prometheus
-    test: false
   test:
-    image: golang:${TAG}
-    commands:
-      - ls 
-      - ls .build/
+    image: sipian/golang-builder:1.10-base
+    pull: true
+    path: github.com/prometheus/prometheus
+    test: true
 matrix:
   TAG:
     - 1.10
