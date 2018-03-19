@@ -8,6 +8,7 @@ pipeline:
     image: sipian/golang-builder:1.10-base
     pull: true
     arch: [linux/amd64,linux/386]
+    goversion: 1.9.4
   test:
     image: sipian/golang-builder:1.10-base
     pull: true
