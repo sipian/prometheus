@@ -4,7 +4,8 @@ workspace:
 pipeline:
   test:
     image: sipian/golang-builder:1.10-base
-    import: github.com/prometheus/prometheus 
+    pull: true
+    path: github.com/prometheus/prometheus 
 matrix:
   TAG:
     - 1.10
