@@ -2,7 +2,7 @@ workspace:
     base: /go
     path: src/github.com/prometheus/prometheus
 pipeline:
-  test:
+  build:
     image: sipian/golang-builder:1.10-base
     pull: true
     path: github.com/prometheus/prometheus
