@@ -17,5 +17,5 @@ pipeline:
     pull: true
     test: true
 matrix:
-  GO_VERSION:
+  TAG:
     - 1.10
