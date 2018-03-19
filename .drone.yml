@@ -11,11 +11,11 @@ pipeline:
     image: sipian/golang-builder:1.10-base
     pull: true
     arch: [freebsd/amd64]
-    goversion: "1.9.3"
+    goversion: ${TAG}
   test:
     image: sipian/golang-builder:1.10-base
     pull: true
     test: true
 matrix:
   TAG:
-    - 1.10
+    - "1.10"
