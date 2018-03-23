@@ -10,12 +10,17 @@ pipeline:
   build:
     image: sipian/golang-builder:base
     pull: true
-    arch: [freebsd/amd64]
+    arch: [linux/amd64]
     goversion: "1.10"
-  test:
-    image: sipian/golang-builder:base
-    pull: true
-    test: true
+#  test:
+#    image: sipian/golang-builder:base
+#    pull: true
+#    test: true
+  docker:
+    image: plugins/docker
+    repo: sipian/prometheus
+    tags: latest
+    secrets: [ docker_username, docker_password ]
 matrix:
   TAG:
     - "1.10"
