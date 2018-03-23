@@ -8,12 +8,12 @@ workspace:
     path: src/github.com/prometheus/prometheus
 pipeline:
   build:
-    image: sipian/golang-builder:1.10-base
+    image: sipian/golang-builder:base
     pull: true
     arch: [freebsd/amd64]
     goversion: "1.10"
   test:
-    image: sipian/golang-builder:1.10-base
+    image: sipian/golang-builder:base
     pull: true
     test: true
 matrix:
