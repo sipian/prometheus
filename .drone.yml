@@ -8,7 +8,7 @@ workspace:
     path: src/github.com/prometheus/prometheus
 pipeline:
   build:
-    image: sipian/golang-builder:base
+    image: sipian/golang-builder:${TAG}
     pull: true
     arch: [linux/amd64]
     goversion: "1.10"
@@ -23,4 +23,4 @@ pipeline:
     secrets: [ docker_username, docker_password ]
 matrix:
   TAG:
-    - "1.10"
+    - "base"
