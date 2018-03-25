@@ -12,10 +12,10 @@ pipeline:
     pull: true
     arch: [linux/amd64]
     goversion: "1.10"
-#  test:
-#    image: sipian/golang-builder:base
-#    pull: true
-#    test: true
+  test:
+    image: sipian/golang-builder:${TAG}
+    pull: true
+    test: true
   docker:
     image: plugins/docker
     repo: sipian/prometheus
