@@ -46,6 +46,5 @@ cp .build/linux-amd64/promtool promtool
 
 # Running tests
 make test
-
 exit 0
 
