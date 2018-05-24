@@ -30,7 +30,7 @@ export GOPATH="/home/prow/go"
 export PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
 mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 echo "go version :: $(go version)"
-#running tests
+
 repoName="github.com/prometheus/prometheus"
 
 if [[ -z "${ARCH}" ]]; then
@@ -45,11 +45,6 @@ echo "repoName : $repoName"
 # Get first path listed in GOPATH
 goPath="${GOPATH%%:*}"
 repoPath="${goPath}/src/${repoName}"
-
-# Running tests
-# The `test` Makefile target is required
-make test
-
 
 # TODO
 # # Look for the CGO envvar

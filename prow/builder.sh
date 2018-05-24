@@ -43,5 +43,9 @@ done
 echo "Binaries built :: $(ls .build/)"
 cp .build/linux-amd64/prometheus prometheus
 cp .build/linux-amd64/promtool promtool
+
+# Running tests
+make test
+
 exit 0
 
