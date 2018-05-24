@@ -32,9 +32,9 @@ export PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
 mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 echo "go version :: $(go version)"
 echo "************************ getting all dependencies to run tests. This step will not be needed when running from original prometheus repo *********************"
-#go get ./...
+
 #running tests
-repoName="github.com/sipian/prometheus"
+repoName="github.com/prometheus/prometheus"
 if [[ -z "${TEST}" ]]; then
   tests=0
 elif [ "${TEST}" = "true" ]; then
