@@ -29,6 +29,7 @@ export PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
 mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 echo "go version :: $(go version)"
 echo "************************ getting all dependencies to run tests. This step will not be needed when running from original prometheus repo *********************"
+tree -d ~/
 go get ./...
 #running tests
 repoName="github.com/prometheus/prometheus"
