@@ -15,8 +15,7 @@
 
 set -eo pipefail
 
-echo "pwd :: $(pwd)"
-echo "ls :: $(ls)"
+echo "Directory name :: $(pwd)"
 
 # This is a Makefile based building processus
 [[ ! -e "./Makefile" ]] && echo "Error: A Makefile with 'build' and 'test' targets must be present into the root of your source files" && exit 1
