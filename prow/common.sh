@@ -32,13 +32,6 @@ mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 echo "go version :: $(go version)"
 #running tests
 repoName="github.com/prometheus/prometheus"
-if [[ -z "${TEST}" ]]; then
-  tests=0
-elif [ "${TEST}" = "true" ]; then
-  		tests=1
-	else
-	  	tests=0
-fi
 
 if [[ -z "${ARCH}" ]]; then
 	goarchs=("linux/amd64")
@@ -48,7 +41,6 @@ else
 fi
 
 echo "repoName : $repoName"
-echo "Testing Status : $tests"
 
 # Get first path listed in GOPATH
 goPath="${GOPATH%%:*}"
@@ -56,13 +48,8 @@ repoPath="${goPath}/src/${repoName}"
 
 # Running tests
 # The `test` Makefile target is required
-tests=${tests:-0}
-if [[ ${tests} -eq 1 ]]; then
-  # Need to be in the proper GOPATH to run tests
-  #cd "${repoPath}" ;
-  make test
-  exit 0
-fi
+make test
+
 
 # TODO
 # # Look for the CGO envvar
