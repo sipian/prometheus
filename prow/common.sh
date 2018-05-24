@@ -59,7 +59,8 @@ repoPath="${goPath}/src/${repoName}"
 tests=${tests:-0}
 if [[ ${tests} -eq 1 ]]; then
   # Need to be in the proper GOPATH to run tests
-  cd "${repoPath}" ; make test
+  #cd "${repoPath}" ;
+  make test
   exit 0
 fi
 
