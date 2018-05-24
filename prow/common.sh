@@ -17,7 +17,6 @@ set -eo pipefail
 
 echo "pwd :: $(pwd)"
 echo "ls :: $(ls)"
-echo "HOME :: $HOME"
 
 # This is a Makefile based building processus
 [[ ! -e "./Makefile" ]] && echo "Error: A Makefile with 'build' and 'test' targets must be present into the root of your source files" && exit 1
@@ -28,7 +27,7 @@ curl -fsSL "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz" -o gol
 	&& tar -C /usr/local -xzf golang.tar.gz \
 	&& rm golang.tar.gz
 
-export GOPATH="$HOME/go"
+export GOPATH="/home/prow/go"
 export PATH="$GOPATH/bin:/usr/local/go/bin:$PATH"
 mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 echo "go version :: $(go version)"
