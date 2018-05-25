@@ -22,16 +22,6 @@ goarchs=(${goarchs[@]:-linux\/amd64})
 
 for goarch in "${goarchs[@]}"
 do
-  goos=${goarch%%/*}
-  arch=${goarch##*/}
-  echo "Arches :: -- ${arch}"
-done
-
-for goarch in "${goarchs[@]}"
-do
-  goos=${goarch%%/*}
-  arch=${goarch##*/}
-
   if [[ "${arch}" =~ ^armv.*$ ]]; then
     goarm=${arch##*v}
     arch="arm"

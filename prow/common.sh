@@ -45,12 +45,10 @@ if [[ -z "${ARCH}" ]]; then
 	goarchs=("linux/amd64")
 else
         IFS=',';
-        goarch=($ARCH);
+        goarchs=($ARCH);
 fi
 
 echo "repoName : $repoName"
-echo "architectures to test"
-printf '%s\n' "${goarch[@]}"
 
 # Running tests
 # The `test` Makefile target is required
