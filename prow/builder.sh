@@ -20,9 +20,12 @@ source ./prow/common.sh
 declare -a goarchs
 goarchs=(${goarchs[@]:-linux\/amd64})
 
-echo "architectures to test2 :: "
-printf '%s\n' "${goarch[@]}"
-
+for goarch in "${goarchs[@]}"
+do
+  goos=${goarch%%/*}
+  arch=${goarch##*/}
+  echo "Arches :: -- ${arch}"
+done
 
 for goarch in "${goarchs[@]}"
 do
@@ -49,7 +52,5 @@ echo "Binaries built :: $(ls .build/)"
 cp .build/linux-amd64/prometheus prometheus
 cp .build/linux-amd64/promtool promtool
 
-# Running tests
-make test
 exit 0
 
