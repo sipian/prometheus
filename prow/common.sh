@@ -55,7 +55,7 @@ echo "repoName : $repoName"
 tests=${tests:-0}
 if [[ ${tests} -eq 1 ]]; then
   # Need to be in the proper GOPATH to run tests
-  make test
+  make check_license style unused test staticcheck 
   echo " >>>> Tests Compeleted"
   exit 0
 fi
