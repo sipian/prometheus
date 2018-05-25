@@ -19,6 +19,11 @@ source ./prow/common.sh
 # The `build` Makefile target is required
 declare -a goarchs
 goarchs=(${goarchs[@]:-linux\/amd64})
+
+echo "architectures to test2 :: "
+printf '%s\n' "${goarch[@]}"
+
+
 for goarch in "${goarchs[@]}"
 do
   goos=${goarch%%/*}

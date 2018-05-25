@@ -41,6 +41,8 @@ else
 fi
 
 echo "repoName : $repoName"
+echo "architectures to test :: "
+printf '%s\n' "${goarch[@]}"
 
 # Get first path listed in GOPATH
 goPath="${GOPATH%%:*}"
