@@ -56,6 +56,7 @@ tests=${tests:-0}
 if [[ ${tests} -eq 1 ]]; then
   # Need to be in the proper GOPATH to run tests
   make test
+  echo " >>>> Tests Compeleted"
   exit 0
 fi
 
