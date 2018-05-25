@@ -40,7 +40,7 @@ do
   fi
 done
 
-echo "Binaries built :: $(ls .build/)"
+echo -e "Binaries built :: \n $(ls .build/)"
 cp .build/linux-amd64/prometheus prometheus
 cp .build/linux-amd64/promtool promtool
 
