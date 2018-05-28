@@ -19,11 +19,11 @@ source ./prow/common.sh
 # The `build` Makefile target is required
 declare -a goarchs
 goarchs=(${goarchs[@]:-linux\/amd64})
+
 for goarch in "${goarchs[@]}"
 do
   goos=${goarch%%/*}
   arch=${goarch##*/}
-
   if [[ "${arch}" =~ ^armv.*$ ]]; then
     goarm=${arch##*v}
     arch="arm"
@@ -40,11 +40,9 @@ do
   fi
 done
 
-echo "Binaries built :: $(ls .build/)"
+echo -e "Binaries built :: \n $(ls .build/)"
 cp .build/linux-amd64/prometheus prometheus
 cp .build/linux-amd64/promtool promtool
 
-# Running tests
-make test
 exit 0
 

@@ -33,18 +33,32 @@ echo "go version :: $(go version)"
 
 repoName="github.com/prometheus/prometheus"
 
+if [[ -z "${TEST}" ]]; then
+  tests=0
+elif [ "${TEST}" = "true" ]; then
+      tests=1
+  else
+      tests=0
+fi
+
 if [[ -z "${ARCH}" ]]; then
 	goarchs=("linux/amd64")
 else
         IFS=',';
-        goarch=($ARCH);
+        goarchs=($ARCH);
 fi
 
 echo "repoName : $repoName"
 
-# Get first path listed in GOPATH
-goPath="${GOPATH%%:*}"
-repoPath="${goPath}/src/${repoName}"
+# Running tests
+# The `test` Makefile target is required
+tests=${tests:-0}
+if [[ ${tests} -eq 1 ]]; then
+  # Need to be in the proper GOPATH to run tests
+  make check_license style unused test staticcheck 
+  echo " >>>> Tests Compeleted"
+  exit 0
+fi
 
 # TODO
 # # Look for the CGO envvar
