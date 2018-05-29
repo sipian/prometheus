@@ -48,7 +48,8 @@ else
         goarchs=($ARCH);
 fi
 
-echo "repoName : $repoName"
+echo "repoName :: $repoName"
+echo "Test status :: $tests"
 
 # Running tests
 # The `test` Makefile target is required
@@ -59,6 +60,9 @@ if [[ ${tests} -eq 1 ]]; then
   echo " >>>> Tests Compeleted"
   exit 0
 fi
+
+echo "list of architectures to build :: "
+printf '%s\n' "${goarchs[@]}"
 
 # TODO
 # # Look for the CGO envvar
