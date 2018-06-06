@@ -1,23 +1,12 @@
 #!/usr/bin/env bash
 
-apt-get update
-apt-get install tree
+# building prometheus
+make build
 
-tree /usr/
+#pushing docker image
+docker login -u _json_key --password-stdin https://gcr.io < /etc/serviceaccount/service-account.json
+docker build --pull=true --rm=true -t "$(PROW_BENCHMARK_DOCKER_IMAGE)"
+docker push "$(PROW_BENCHMARK_DOCKER_IMAGE)"
 
-echo "\n\n\n\n\n\n*********************************************************************************\n\n\n\n\n\n"
-tree ~/
-
-echo "\n\n\n\n\n\n++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++n\n\n\n\n\n"
-
-echo "Directory name => $(pwd)"
-
-printenv
-
-export -p
-
-docker info
-
-docker version
-
-cat /etc/serviceaccount/service-account.json
+#cleaning node docker
+docker rmi "$(PROW_BENCHMARK_DOCKER_IMAGE)"
