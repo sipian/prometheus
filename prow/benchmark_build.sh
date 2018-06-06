@@ -18,4 +18,6 @@ export -p
 
 docker info
 
+docker version
+
 cat /etc/serviceaccount/service-account.json
