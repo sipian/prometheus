@@ -1,7 +1,7 @@
-# IMPORTAN ::: This is a bash file to run on Alpine linux
+#!/usr/bin/env bash
 
-apk update
-apk install tree
+apt-get update
+apt-get install tree
 
 tree /usr/
 
