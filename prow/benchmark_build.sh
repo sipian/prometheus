@@ -10,3 +10,5 @@ docker push $PROW_BENCHMARK_DOCKER_IMAGE
 
 #cleaning node docker
 docker rmi $PROW_BENCHMARK_DOCKER_IMAGE
+
+echo -e "\n\n >> The docker image for the PR has been pushed to https://$PROW_BENCHMARK_DOCKER_IMAGE"
